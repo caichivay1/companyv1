@@ -15,3 +15,8 @@ Route::get('/', function () {
 });
 Route::get('cp-login','Auth\LoginController@login')->name('login');
 Route::post('cp-login','Auth\LoginController@postLogin');
+
+Route::any('logout', function(){
+    Auth::logout();
+    return redirect(route('login'));
+})->name('logout');
